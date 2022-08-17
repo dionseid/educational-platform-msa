@@ -1,0 +1,30 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+info:
+  app:
+    name: subscription-service
+    description: Manage different subscriptions and their plans
+    version: 1.0.0
+
+management:
+  info:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+spring:
+  application:
+    name: subscription-service
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: config-service
+  profiles:
+    active: dev
